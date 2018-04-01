@@ -1,0 +1,44 @@
+.header{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+span{
+	margin: 10px;
+	cursor: pointer;
+}
+img{
+	width: 25px;
+	height: 25px;
+}
+
+.header-login{
+	position: absolute;
+	margin: 0 0 10px 0;
+	right: 100px;
+}
+.link{
+	text-decoration: none;
+	color: #000;
+}
+
+.link:hover{
+	color: orange;
+}
+
+.show-login{
+	visibility: visible;
+}
+
+.bg{
+	width: 100%;
+	height: 100%;
+	background-color: gray;
+	opacity: 0.3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
