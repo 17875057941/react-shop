@@ -1,29 +1,58 @@
 import React from 'react';
-//import ProTypes from 'prop-types';
+import ProTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Car from '../../components/car/Car';
 
-import {getGoods} from '../../reducers/Car';//引入添加action
-
-//import {imgData} from '../../components/imageData/imagedata'//获取处理过后的商品数据
-//const actionTypes={type:'ADD_GOODS'}//添加
+import {addQuantity,delQuantity,initStorage} from '../../actions/actions';//加载localstorage
 
 class CarContainer extends React.Component{
+
+	static propTypes={
+		product:ProTypes.array,
+		initStorage:ProTypes.func
+	}
+	componentWillMount(){
+		this._loadStorage();//初始化localstorage到state中
+	}
+	componentDidMount(){
+		//console.log(this.props);
+	}
+
+	_loadStorage(){
+		var product=[];
+		for(var key in localStorage){
+			if(key==='length') break;
+			var temp=JSON.parse(localStorage.getItem(key))
+			product.push(temp)
+		}
+		this.props.initStorage(product);
+		//console.log(product);
+	}
+
+	handelDelStorage(key){
+		const {product}=this.props
+	}
 	render(){
+		console.log(this.props)
 		return(
-			<Car data={this.props.data}/>
+			<Car data={this.props.value}
+			delQuantity={this.handelDelStorage.bind(this)}/>
 		)
 	}
 }
-const mapStateToProps=(state)=>{
+const mapStateToProps=(state)=>{//获取商品数据
 	return{
-		data:state.data
+		value:state.product
 	}
 }
+
 const mapDispatchToProps=(dispatch)=>{
 	return{
-		onGet:(data)=>{
-			dispatch(getGoods(data));
+		initStorage:(product)=>{
+			dispatch(initStorage(product));
+		},
+		delQuantity:(key)=>{//删除商品
+			dispatch(addQuantity(key));
 		}
 	}
 }

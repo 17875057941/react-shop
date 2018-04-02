@@ -17,11 +17,10 @@ class SingleGoods extends React.Component{
 	addGoods(e){
 			let data=imgData[e.target.id];
 			this._saveDatatoStorage(e.target.id,data);
-			//this.props.onAdd(imgData[e.target.id]);//增加数据
 			this.setState({showCar:'visible'});	
 	}
 
-	_saveDatatoStorage(target,data){
+	_saveDatatoStorage(target,data){//设置localstorage
 		localStorage.setItem(target,JSON.stringify(data));
 	}
 	hideCar(e){

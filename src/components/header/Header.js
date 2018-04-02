@@ -27,7 +27,7 @@ class Header extends React.Component{
 			}
 		}
 		componentDidMount(){
-			console.log(localStorage.getItem('admin'));
+			//console.log(localStorage.getItem('admin'));
 			if(localStorage.getItem('admin')){
 				this.setState({
 					name:'admin'

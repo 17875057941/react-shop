@@ -6,7 +6,7 @@ class Goods extends React.Component{
 		super(props);
 		this.state={
 			quantity:this.props.data.quantity,
-			totalPrice:this.props.data.totalPrice,
+			totalPrice:this.props.data.totalPrice,//将totalPrice状态提升到car组件
 			check:true,
 			checkStyle:"checknox-btn item-check-btn check"
 		}
@@ -15,12 +15,13 @@ class Goods extends React.Component{
 		quantity=this.state.quantity;
 		price=this.props.data.unitPrice;
 		quantity++;
+		this.handleSubmit();
 		this.setState({
 			quantity:quantity,
-			totalPrice:'￥'+price*quantity
+			totalPrice:price*quantity
 		})
+		this.handleSubmit();
 	}
-
 	sub(quantity,price){
 		quantity=this.state.quantity;
 		price=this.props.data.unitPrice;
@@ -28,13 +29,20 @@ class Goods extends React.Component{
 		if(quantity<0){
 			quantity=0;
 		}
+		this.handleSubmit();
 		this.setState({
 			quantity:quantity,
-			totalPrice:'￥'+price*quantity
+			totalPrice:price*quantity
 		})
+		
+	}
+	handleSubmit(){
+		if(this.props.onSubmit){
+			this.props.onSubmit(this.state.totalPrice);
+		}
 	}
 	handleDelete(e){
-		localStorage.removeItem(e.target.id);
+		this.props.onDeleteStorage(e.target.id);//删除
 	}
 	changeStyle(){
 		let flag=this.state.check;
@@ -46,7 +54,6 @@ class Goods extends React.Component{
 		}else{
 			this.setState({checkStyle:'checknox-btn item-check-btn check-icon'})
 		}
-		console.log('check')
 	}
 	render(){
 		return (
@@ -77,11 +84,12 @@ class Goods extends React.Component{
 					</div>
 				</div>
 				<div className="car-tab-4">
-					<div className="item-price-total">{this.state.totalPrice}</div>
+					<div className="item-price-total">￥{this.state.totalPrice}</div>
 				</div>
 				<div className="car-tab-5">
 					<div className="cart-item-opration">
-						<a className="item-edit-btn" id={this.props.data.dataId} onClick={this.handleDelete.bind(this)}>
+						<a className="item-edit-btn" id={this.props.data.dataId} 
+						onClick={this.handleDelete.bind(this)}>
 							删除
 						</a>
 					</div>
@@ -90,5 +98,4 @@ class Goods extends React.Component{
 		)
 	}
 }
-
 export default Goods;

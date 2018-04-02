@@ -18,8 +18,7 @@ class Pay extends React.Component{
 		}else{
 			this.setState({checkStyle:'checknox-btn item-check-btn check-icon'})
 		}
-		console.log('check')
-
+		console.log('check');
 	}
 	render(){
 		return(
@@ -36,7 +35,7 @@ class Pay extends React.Component{
 
 					<div className="cart-foot-r">
 						<div className="item-total">
-  							总价: <span className="total-price">￥338.00</span>
+  							总价: <span className="total-price">￥{this.props.amount}</span>
   						</div> <div className="btn-wrap">
   							<a className="btn btn--red">去结算</a>
   						</div>

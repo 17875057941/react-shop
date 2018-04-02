@@ -1,26 +1,32 @@
 //商品编辑
 import React from 'react';
 import Header from '../header/CookieHeader';
-import Goods from '../goods/Goods';
+//import Goods from '../goods/Goods';
+import Goods from '../../container/goods/Goods'
 import Pay from '../pay/Pay'
 require('./Car.css');
 class Car extends React.Component{
-	//要解决的问题：如何获取对应商品
 	constructor(props){
 		super(props);
+		this.state={
+			goods:'',
+			data:'',
+			amount:0
+		}
 		this.goods=[];
 	}
 	componentWillMount(){
 		this._loadData();
+		this.setState({
+			goods:this.goods
+		});
 	}
 	_loadData(){
 		var data;
 		for(var key in localStorage){
-			console.log('key'+key);
 			if(key==='length'){
 				return;
 			}else{
-				console.log('key'+key);
 				data=JSON.parse(localStorage.getItem(key));
 				this.goods.push({
 					pic:require('../../static/'+data.productImage),//加载图片路径
@@ -33,13 +39,22 @@ class Car extends React.Component{
 			}
 		}
 	}
+	handleSubmitMoney(amount){
+		console.log(amount);
+		this.setState({
+			amount:amount
+		})
+	}
+
 	render(){
 		const totalGoods=[];
-		for(let i in this.goods){
+		for(let i in this.state.goods){
 			totalGoods.push(
-				<Goods data={this.goods[i]} key={i}/>
+				<Goods data={this.state.goods[i]} key={i}
+					onSubmit={this.handleSubmitMoney.bind(this)}/>
 			)
 		}
+
 		return (
 			<div id="car">
 				<Header/>
@@ -60,12 +75,11 @@ class Car extends React.Component{
 									<li>操作</li>
 								</ul>
 							</div>
-
 							<ul className="item-goods">
 								{totalGoods}
 							</ul>
 						</div>
-						<Pay/>
+						<Pay amount={this.state.amount}/>
 					</div>
 				</div>
 			</div>
