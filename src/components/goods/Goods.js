@@ -6,7 +6,9 @@ class Goods extends React.Component{
 		super(props);
 		this.state={
 			quantity:this.props.data.quantity,
-			totalPrice:this.props.data.totalPrice
+			totalPrice:this.props.data.totalPrice,
+			check:true,
+			checkStyle:"checknox-btn item-check-btn check"
 		}
 	}
 	add(quantity,price){
@@ -34,12 +36,24 @@ class Goods extends React.Component{
 	handleDelete(e){
 		localStorage.removeItem(e.target.id);
 	}
+	changeStyle(){
+		let flag=this.state.check;
+		this.setState({
+			check:!flag
+		})
+		if(this.state.check){
+			this.setState({checkStyle:'checknox-btn item-check-btn check'})
+		}else{
+			this.setState({checkStyle:'checknox-btn item-check-btn check-icon'})
+		}
+		console.log('check')
+	}
 	render(){
 		return (
 			<li>
 				<div className="car-tab-1">
 					<div className="car-item-check">
-						<a className="checknox-btn item-check-btn check"></a>
+						<a className={this.state.checkStyle} onClick={this.changeStyle.bind(this)}></a>
 					</div>
 					<div className="car-item-pic">
 						<img alt={this.props.data.title} src={this.props.data.pic} lazy="loaded"/>

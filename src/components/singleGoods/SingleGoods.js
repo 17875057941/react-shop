@@ -1,29 +1,24 @@
 //单个商品-->主页 dumb
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+
 import {imgData} from '../imageData/imagedata'//获取处理过后的商品数据
 require('./SingleGoods.css')
-//const actionTypes={type:'ADD_GOODS'}
+
 class SingleGoods extends React.Component{
 	constructor(props){
 		super(props);
-		//this.production=[]
 		this.state={
 			showCar:'hidden'
 		}
 		this.addGoods=this.addGoods.bind(this);
 		this.hideCar=this.hideCar.bind(this);
 	}
-	componentWillMount(){
-	}
 	addGoods(e){
-		//console.log(imgData[e.target.id]);
-		let data=imgData[e.target.id];
-		this._saveDatatoStorage(e.target.id,data);
-		//console.log(data instanceof Object)
-		//localStorage.setItem(e.target.id,JSON.stringify(data));
-		this.props.onAdd(imgData[e.target.id]);//增加数据
-		this.setState({showCar:'visible'});
+			let data=imgData[e.target.id];
+			this._saveDatatoStorage(e.target.id,data);
+			//this.props.onAdd(imgData[e.target.id]);//增加数据
+			this.setState({showCar:'visible'});	
 	}
 
 	_saveDatatoStorage(target,data){

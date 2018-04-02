@@ -1,26 +1,24 @@
 //登陆验证 
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes,{instanceOf} from 'prop-types';
+import {withCookies, Cookies} from 'react-cookie';
 require('./Login.css');
 class Login extends React.Component{
-
 	constructor(){
 		super();
-		this.handleClick=this.handleClick.bind(this);
 		this.state={
-			username:PropTypes.any.isRequired,
-			password:PropTypes.any.isRequired
+			username:'',
+			password:''
 		}
 	}
-
-	handleClick(e){
-		//this.props.showLogin=null;
+	static propTypes={
+		cookies:instanceOf (Cookies).isRequired
 	}
-	handleSubmit(e){
-		e.preventDefault();
+	handleSubmit(e){//传值给父组件
+		//e.preventDefault();
 		if(!this.state.username) return alert('用户名不能为空');
-		if(!this.state.psw) return alert('密码不能为空');
-		this._saveCooke();
+		if(!this.state.password) return alert('密码不能为空');
+		this._saveCookie(this.state.username,this.state.password);
 		this.name=this.state.username;
 		console.log(this.name);
 		if(this.props.onSubmit){
@@ -28,36 +26,33 @@ class Login extends React.Component{
 			this.props.onSubmit(name);
 		}
 	}
-	
 	userName(e){
 		this.setState({
 			username:e.target.value
 		})
 		console.log(e.target.value)
 	}
-
-	psw(e){
+	password(e){
 		this.setState({
-			psw:e.target.value
+			password:e.target.value
 		})
 	}
-	_saveCooke(){
-		localStorage.setItem(this.state.username,this.state.psw);
-		console.log('kk')
+	_saveCookie(name,password){//设置cookies
+		const {cookies}=this.props;
+		cookies.set(name,password,{path:'/'});
 	}
 	render(){
 		return (				
-				<div id="form" action='http://localhost:3000/' method="post">
-					<form className="form" method="get" action="/" onSubmit={this.handleSubmit.bind(this)}>
+				<div id="form">
+					<form className="form" method="get" action="http://localhost:3000/" onSubmit={this.handleSubmit.bind(this)}>
 						<label>账号：</label>
 						<input type="text" className="header-input" onChange={this.userName.bind(this)}></input><br/>
 						<label>密码：</label>
-						<input type="password" className="header-input" onChange={this.psw.bind(this)}></input><br/>
-						<input type="submit" value="登陆" className="header-btn"></input><br/>
+						<input type="password" className="header-input" onChange={this.password.bind(this)}></input><br/>
+						<input type="submit" value="登陆" className="header-btn" ></input><br/>
 					</form>
 				</div>
 		)
 	}
-
 }
-export default Login;
+export default withCookies(Login);

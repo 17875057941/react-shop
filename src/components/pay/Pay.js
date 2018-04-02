@@ -1,6 +1,26 @@
 //支付结算
 import React from 'react';
 class Pay extends React.Component{
+	constructor(){
+		super();
+		this.state={
+			check:true,
+			checkStyle:"checknox-btn item-check-btn check"
+		}
+	}
+	changeStyle(){
+		let flag=this.state.check;
+		this.setState({
+			check:!flag
+		})
+		if(this.state.check){
+			this.setState({checkStyle:'checknox-btn item-check-btn check'})
+		}else{
+			this.setState({checkStyle:'checknox-btn item-check-btn check-icon'})
+		}
+		console.log('check')
+
+	}
 	render(){
 		return(
 			<div className="car-footer">
@@ -8,7 +28,7 @@ class Pay extends React.Component{
 					<div className="car-foot-l">
 						<div className="item-all-check">
 							<a>
-								<span className="checknox-btn item-check-btn check"></span>
+								<span className={this.state.checkStyle} onClick={this.changeStyle.bind(this)}></span>
 								<span>全选</span>	
 							</a>
 						</div>

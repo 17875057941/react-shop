@@ -1,6 +1,6 @@
 //商品编辑
 import React from 'react';
-import Header from '../header/Header';
+import Header from '../header/CookieHeader';
 import Goods from '../goods/Goods';
 import Pay from '../pay/Pay'
 require('./Car.css');
@@ -10,11 +10,9 @@ class Car extends React.Component{
 		super(props);
 		this.goods=[];
 	}
-
 	componentWillMount(){
 		this._loadData();
 	}
-
 	_loadData(){
 		var data;
 		for(var key in localStorage){
@@ -74,5 +72,4 @@ class Car extends React.Component{
 		)
 	}
 }
-
 export default Car;

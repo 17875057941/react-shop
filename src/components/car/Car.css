@@ -77,6 +77,11 @@
     border-color: #ee7a23;
 }
 
+.item-check-btn.check-icon{
+    background:url('../homepage/static/勾.png');
+    background-size: 100% 100%;
+}
+
 .item-check-btn {
     display: inline-block;
     width: 20px;

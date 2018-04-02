@@ -1,7 +1,9 @@
 //头部，包括登陆按钮等
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Login from '../login/Login';
+import PropTypes,{instanceOf} from 'prop-types';
+import {withCookies, Cookies} from 'react-cookie';
+import Login from '../login/CookieApp';
 require('./Header.css');
 class Header extends React.Component{
 	constructor(){
@@ -13,7 +15,17 @@ class Header extends React.Component{
 			this.handleClick=this.handleClick.bind(this);
 			this.hideLogin=this.hideLogin.bind(this);
 		}
-
+		static propTypes={
+			cookies:instanceOf(Cookies).isRequired
+		}
+		componentWillMount(){
+			const {cookies}=this.props;
+			if(cookies.get('admin')){
+				this.setState({
+					name:'admin'
+				})
+			}
+		}
 		componentDidMount(){
 			console.log(localStorage.getItem('admin'));
 			if(localStorage.getItem('admin')){
@@ -38,7 +50,6 @@ class Header extends React.Component{
 		}
 
 	render(){
-		// this.state.showLogin?<Login/>:null;
 		return (
 			<header className="header">
 				<h1>My Shopping Car</h1>
@@ -57,4 +68,4 @@ class Header extends React.Component{
 	}
 }
 
-export default Header;
+export default withCookies(Header);

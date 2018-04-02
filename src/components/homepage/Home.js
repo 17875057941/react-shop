@@ -1,6 +1,7 @@
 //主页
 import React from 'react';
-import Header from '../header/Header';
+
+import Header from '../header/CookieHeader';
 import SingleGoods from '../../container/singleGoods/SingleGoods'//new
 //import SingleGoods from '../../components/singleGoods/SingleGoods'
 //import {Link} from 'react-router-dom'
