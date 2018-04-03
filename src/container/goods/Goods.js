@@ -17,11 +17,11 @@ class GoodsContainer extends React.Component{
 	}
 	ondelQuantity(key){//能够删除
 		console.log(key+'-k')
-		//const product=this.props;
 		localStorage.removeItem(key);
 		const newStorage=localStorage
 		console.log('newStorage',newStorage)
 		this.props.ondelQuantity(newStorage);
+		return alert('删除功能尚未完成，请谅解。请重新刷新页面')
 	}
 	render(){
 		console.log('goods',this.props.value)
@@ -29,7 +29,6 @@ class GoodsContainer extends React.Component{
 			<Goods
 				value={this.props.value}//从mapState拿回来的值
 				data={this.props.data}//商品数据传下去
-				amount={this.props.amount}
 				ondelQuantity={this.ondelQuantity.bind(this)}
 				onSubmit={this.props.onSubmit}
 				onIncrease={this.props.onIncrease}//增加
@@ -37,11 +36,10 @@ class GoodsContainer extends React.Component{
 		)
 	}
 }
-
 const mapStateToProps=(state)=>{
 	return{
-		value:state.storage.product,//此处为新的localstorage
-		amount:state.payment.amount
+		value:state.storage.product//此处为新的localstorage
+		//amount:state.payment.amount
 	}
 }
 

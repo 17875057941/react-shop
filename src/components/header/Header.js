@@ -2,7 +2,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import PropTypes,{instanceOf} from 'prop-types';
-import {withCookies, Cookies} from 'react-cookie';
+import cookie from 'react-cookies';
 import Login from '../login/CookieApp';
 require('./Header.css');
 class Header extends React.Component{
@@ -15,20 +15,13 @@ class Header extends React.Component{
 			this.handleClick=this.handleClick.bind(this);
 			this.hideLogin=this.hideLogin.bind(this);
 		}
-		static propTypes={
-			cookies:instanceOf(Cookies).isRequired
-		}
+		
 		componentWillMount(){
-			const {cookies}=this.props;
-			if(cookies.get('admin')){
-				this.setState({
-					name:'admin'
-				})
-			}
+			cookie.save('liao','jia');
 		}
 		componentDidMount(){
 			//console.log(localStorage.getItem('admin'));
-			if(localStorage.getItem('admin')){
+			if(cookie.load('admin')){
 				this.setState({
 					name:'admin'
 				})
@@ -68,4 +61,4 @@ class Header extends React.Component{
 	}
 }
 
-export default withCookies(Header);
+export default Header;

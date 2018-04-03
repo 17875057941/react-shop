@@ -14,31 +14,45 @@ export function storage(state,action){//localStorage
 		case 'LOAD_STORAGE'://加载localstorage
 			return localStorage;
 		default:
-			//console.log('没有任何其他操作',state);
 			return state;
 	}
 }
 
 export function payment(state,action){//支付结算
-
 	if(!state){
 		state={ amount:0 }
 	}
 	switch(action.type){
 		case 'inscrease'://增加
-		//console.log('增加',state.amount+action.amount)
-		console.log(action)
-		console.log('增加总金额',state.amount+action.amount)
+
 		return {amount:state.amount+action.amount};
 
 		case 'descrease':
-		console.log('减少',state.amount,action.amount)
-		//console.log('减少',state.amount-action.amount)
+
 		return {amount:state.amount-action.amount};
 
 		default:
 			console.log('没有总额')
 			return state;
+	}
+}
+
+export function cookie(state,action){
+	if(!state){
+		state={ cookie:null }
+	}
+	switch(action.type){
+		case 'INIT_COOKIES'://初始化用户cookies
+
+		console.log('初始化cookies');
+		//return {cookie:action.cookie}
+		return null;
+		case 'GET_COOKIES'://获取用户cookies
+		console.log('获取用户cookies');
+		//return {cookie:action.cookie}
+		return null;
+		default:
+		return state;
 	}
 }
 export function loadStorage(){//加载localstorage
@@ -65,27 +79,19 @@ export function delQuantity(goods){//减少商品=>删除localstroage,gooss包�
 		type:ActionTypes.DEL_QUANTITY,
 		goods
 	}
-	//localstorage.removeItem(key);
-	//console.log('删除localstroage成功');
 }
 
-export function extens(data){//小计,data包含数量跟单价
-	return{
-		type:ActionTypes.SINGLE_AMOUNT,
-		data
-	}
-}
-
-export function totalamount(data){//data里面包含每个商品的小计
-	return{
-		type:ActionTypes.TOTAL_AMOUNT,
-		data
-	}
-}
 
 export function saveCookes(user){//user包含用户名和密码
 	return{
 		type:ActionTypes.SET_COOKIES,
+		user
+	}
+}
+
+export function initCookes(user){//user包含用户名和密码
+	return{
+		type:ActionTypes.INIT_COOKIES,
 		user
 	}
 }
@@ -101,6 +107,7 @@ export function initStorage(product){
 	console.log('初始化操作')
 	return { type:ActionTypes.INIT_STORAGE,product }
 }
+
 
 export function increase(amount){
 	console.log('增加操作')

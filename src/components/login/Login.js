@@ -1,7 +1,7 @@
 //登陆验证 
 import React from 'react';
 import PropTypes,{instanceOf} from 'prop-types';
-import {withCookies, Cookies} from 'react-cookie';
+import cookie from 'react-cookies';
 require('./Login.css');
 class Login extends React.Component{
 	constructor(){
@@ -11,10 +11,6 @@ class Login extends React.Component{
 			password:''
 		}
 	}
-	static propTypes={
-		cookies:instanceOf (Cookies).isRequired
-	}
-
 	handleSubmit(e){//传值给父组件
 		//e.preventDefault();
 		if(!this.state.username) return alert('用户名不能为空');
@@ -38,8 +34,9 @@ class Login extends React.Component{
 		})
 	}
 	_saveCookie(name,password){//设置cookies
-		const {cookies}=this.props;
-		cookies.set(name,password,{path:'/'});
+		// const {cookies}=this.props;
+		// cookies.set(name,password,{path:'/'});
+		cookie.save(name,password,{path:"/"})
 	}
 	render(){
 		return (				
@@ -55,4 +52,4 @@ class Login extends React.Component{
 		)
 	}
 }
-export default withCookies(Login);
+export default Login;

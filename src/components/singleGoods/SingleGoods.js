@@ -1,7 +1,7 @@
 //单个商品-->主页 dumb
 import React from 'react';
 import {Link} from 'react-router-dom';
-
+import cookie from 'react-cookies'
 import {imgData} from '../imageData/imagedata'//获取处理过后的商品数据
 require('./SingleGoods.css')
 
@@ -15,9 +15,13 @@ class SingleGoods extends React.Component{
 		this.hideCar=this.hideCar.bind(this);
 	}
 	addGoods(e){
-			let data=imgData[e.target.id];
+		let data=imgData[e.target.id];
+		if(cookie.load('admin')){
 			this._saveDatatoStorage(e.target.id,data);
 			this.setState({showCar:'visible'});	
+		}else{
+			return alert('请先登录！用户名：admin 密码：123456')
+		}
 	}
 
 	_saveDatatoStorage(target,data){//设置localstorage
