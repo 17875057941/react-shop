@@ -42,7 +42,7 @@ class Goods extends React.Component{
 		}
 	}
 	handleDelete(e){
-		this.props.onDeleteStorage(e.target.id);//删除
+		this.props.ondelQuantity(e.target.id);//删除
 	}
 	changeStyle(){
 		let flag=this.state.check;

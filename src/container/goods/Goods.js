@@ -4,20 +4,28 @@ import { connect } from 'react-redux'
 import Goods from '../../components/goods/Goods';
 import {delQuantity,loadStorage,initStorage} from '../../actions/actions';
 class GoodsContainer extends React.Component{
-
-	onDeleteStorage(key){
-		console.log(key+'k')
+	constructor(){
+		super();
+		this.state={
+			value:''
+		}
+	}
+	componentWillMount(){
+		this.setState({
+			value:this.props.value
+		})
+	}
+	ondelQuantity(key){//能够删除
+		console.log(key+'-k')
 		const product=this.props;
-		console.log(product)
-			this.props.onDeleteStorage(key);
+		this.props.ondelQuantity(key);
 	}
 	render(){
-		console.log(this.props)
 		return (
 			<Goods
 				value={this.props.value}//从mapState拿回来的值
-				data={this.props.data}//传下去
-				onDeleteStorage={this.onDeleteStorage.bind(this)}
+				data={this.props.data}//商品数据传下去
+				ondelQuantity={this.ondelQuantity.bind(this)}
 				onloadStorage={this.props.onloadStorage}
 				onSubmit={this.props.onSubmit}/>
 		)
@@ -26,13 +34,13 @@ class GoodsContainer extends React.Component{
 
 const mapStateToProps=(state)=>{
 	return{
-		value:state.product
+		value:state.product//此处为新的localstorage
 	}
 }
 
 const mapDispatchToProps=(dispatch)=>{
 	return {
-		onDeleteStorage:(key)=>{
+		ondelQuantity:(key)=>{
 			dispatch(delQuantity(key));
 		}
 	}

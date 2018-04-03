@@ -18,16 +18,18 @@ class Car extends React.Component{
 	componentWillMount(){
 		this._loadData();
 		this.setState({
-			goods:this.goods
+			goods:this.goods,
+			data:this.props.data
 		});
+		console.log('应该重新渲染',this.props.data);//没有传进来改变state
 	}
 	_loadData(){
 		var data;
-		for(var key in localStorage){
+		for(var key in this.props.data){
 			if(key==='length'){
 				return;
 			}else{
-				data=JSON.parse(localStorage.getItem(key));
+				data=JSON.parse(this.props.data.getItem(key));
 				this.goods.push({
 					pic:require('../../static/'+data.productImage),//加载图片路径
 					dataId:key,
@@ -37,10 +39,9 @@ class Car extends React.Component{
 					totalPrice:0
 				});
 			}
-		}
+		}	
 	}
 	handleSubmitMoney(amount){
-		console.log(amount);
 		this.setState({
 			amount:amount
 		})

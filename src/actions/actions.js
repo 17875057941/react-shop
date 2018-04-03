@@ -1,21 +1,30 @@
 import * as ActionTypes from './actionTypes'
 
-export default function reducer(state,action){//reducer
+/*
+*初始化加载localstorage
+*/
+var product=localStorage;
+
+export default function storage(state,action){//reducer
 	if(!state){
-		state={product:[1]}
+		state={product:product}
 	}
+	var nstate=state
 	switch(action.type){
-		case 'INIT_STORAGE':
-			console.log('初始化storage数据');
-			return {product:action.product}
+		// case 'INIT_STORAGE':
+		// 	console.log('初始化storage数据');
+		// 	return {product:action.product}
 		case 'DEL_QUANTITY'://删除localstorage
 			localStorage.removeItem(action.goods);
-			console.log(0);
-			console.log(action.product);
-			return {product:action.product};
+			//console.log('删除的key'+action.goods)
+			//console.log('更新后的：',nstate.product)
+			console.log(state)
+			return {product:nstate.product};
+
 		case 'LOAD_STORAGE'://加载localstorage
 			return localStorage;
 		default:
+			console.log('自动初始化，没有任何其他操作');
 			return state;
 	}
 }
