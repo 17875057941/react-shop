@@ -21,7 +21,7 @@ class GoodsContainer extends React.Component{
 		const newStorage=localStorage
 		console.log('newStorage',newStorage)
 		this.props.ondelQuantity(newStorage);
-		return alert('删除功能尚未完成，请谅解。请重新刷新页面')
+		return alert('删除功能尚未完善，请谅解。手动刷新页面将删除该商品')
 	}
 	render(){
 		console.log('goods',this.props.value)

@@ -15,10 +15,7 @@ class Header extends React.Component{
 			this.handleClick=this.handleClick.bind(this);
 			this.hideLogin=this.hideLogin.bind(this);
 		}
-		
-		componentWillMount(){
-			cookie.save('liao','jia');
-		}
+	
 		componentDidMount(){
 			//console.log(localStorage.getItem('admin'));
 			if(cookie.load('admin')){

@@ -20,6 +20,11 @@ class Pay extends React.Component{
 		}
 		console.log('check');
 	}
+
+	toPay(){
+		let amount=this.props.amount;
+		return alert('您一共支付'+amount+'元')
+	}
 	render(){
 		return(
 			<div className="car-footer">
@@ -37,7 +42,7 @@ class Pay extends React.Component{
 						<div className="item-total">
   							总价: <span className="total-price">￥{this.props.amount}</span>
   						</div> <div className="btn-wrap">
-  							<a className="btn btn--red">去结算</a>
+  							<a className="btn btn--red" onClick={this.toPay.bind(this)}>去结算</a>
   						</div>
   					</div>
 				</div>
