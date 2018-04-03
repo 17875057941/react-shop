@@ -3,7 +3,7 @@ import ProTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Car from '../../components/car/Car';
 
-//import {addQuantity,delQuantity,initStorage} from '../../actions/actions';//加载localstorage
+import {addQuantity,delQuantity,initStorage} from '../../actions/actions';//加载localstorage
 class CarContainer extends React.Component{
 	constructor(props){
 		super();
@@ -15,11 +15,18 @@ class CarContainer extends React.Component{
 		product:ProTypes.array,
 		initStorage:ProTypes.func
 	}
+	// componentWillMount(){
+	// 	this._loadStorage();//初始化localstorage
+	// }
+	// _loadStorage(){
+	// 	var storage=localStorage;
+	// 	this.props.initStorage(storage);//更新到state中
+	// }
 	handelDelStorage(key){
 		const {product}=this.props
 	}
 	render(){
-		console.log('应该自动更新'+this.props.value)//应该自动更新
+		console.log('应该自动更新',this.props.value)//应该自动更新
 		return(
 			<Car data={this.props.value}
 			delQuantity={this.handelDelStorage.bind(this)}/>
@@ -32,10 +39,11 @@ const mapStateToProps=(state)=>{
 		value:state.product
 	}
 }
-
 const mapDispatchToProps=(dispatch)=>{
 	return{
-		
+		initStorage:(storage)=>{
+			dispatch(initStorage(storage))
+		}
 	}
 }
 export default connect(

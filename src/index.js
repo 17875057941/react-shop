@@ -19,37 +19,3 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById('root')
 )
-
-
-
-// class A extends Component{
-
-// 	handelSubmit(){
-// 		console.log('a');
-// 	}
-// 	render(){
-// 		return(
-// 			<B data='000'
-// 			onSubmit={this.handelSubmit.bind(this)}/>
-// 		)
-// 	}
-// }
-
-// class B extends Component{
-
-// 	componentDidMount(){
-// 		console.log(this.props)
-// 	}
-	
-// 	render(){
-// 		return (
-// 		<div>b</div>
-// 	)
-// 	}
-// }
-
-
-// ReactDOM.render(
-// 	<A/>,
-// 	document.getElementById('root')
-// )

@@ -17,10 +17,14 @@ class GoodsContainer extends React.Component{
 	}
 	ondelQuantity(key){//能够删除
 		console.log(key+'-k')
-		const product=this.props;
-		this.props.ondelQuantity(key);
+		//const product=this.props;
+		localStorage.removeItem(key);
+		const newStorage=localStorage
+		console.log('newStorage',newStorage)
+		this.props.ondelQuantity(newStorage);
 	}
 	render(){
+		console.log('goods',this.props.value)
 		return (
 			<Goods
 				value={this.props.value}//从mapState拿回来的值
