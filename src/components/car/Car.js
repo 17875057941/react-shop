@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../header/CookieHeader';
 //import Goods from '../goods/Goods';
 import Goods from '../../container/goods/Goods'
-import Pay from '../pay/Pay'
+import Pay from '../../container/pay/Pay'
 require('./Car.css');
 class Car extends React.Component{
 	constructor(props){
@@ -80,7 +80,7 @@ class Car extends React.Component{
 								{totalGoods}
 							</ul>
 						</div>
-						<Pay amount={this.state.amount}/>
+						<Pay/>
 					</div>
 				</div>
 			</div>

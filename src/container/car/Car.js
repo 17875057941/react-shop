@@ -36,7 +36,7 @@ class CarContainer extends React.Component{
 //获取商品数据
 const mapStateToProps=(state)=>{
 	return{
-		value:state.product
+		value:state.storage.product
 	}
 }
 const mapDispatchToProps=(dispatch)=>{

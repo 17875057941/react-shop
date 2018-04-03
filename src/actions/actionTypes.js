@@ -18,3 +18,6 @@ export const SET_COOKIES='SET_COOKIES';//设置cookies
 
 export const GET_COOKIES='GET_COOKIES';//获取cookies
 
+export const inscrease='inscrease';
+
+export const descrease='descrease';
