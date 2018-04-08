@@ -20,7 +20,6 @@ class Goods extends React.Component{
 			quantity:quantity,
 			totalPrice:price*quantity
 		})
-		console.log(typeof parseInt(price))
 		this.handleSubmit();
 		this.props.onIncrease(parseInt(price));//更新小计到state
 	}

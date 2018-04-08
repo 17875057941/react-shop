@@ -8,7 +8,7 @@ import {BrowserRouter} from 'react-router-dom'
 //import promise from 'redux-promise'
 //import logger from 'redux-logger'
 import App from './components/routers/Router';
-import reducer from './actions/index';
+import reducer from './reducers/index';
 const store=createStore(reducer);
 
 ReactDOM.render(

@@ -11,7 +11,6 @@
 
 .price-goods-page{
 	display: flex;
-	/*width: 1280px;*/
 	margin: 0 auto;
 }
 .price-left{
@@ -37,18 +36,13 @@ dd:hover{
 ul,li{
 	list-style: none;
 }
-ul{
-
-}
 .goods-right>ul>li{
 	width: 23%;
-	/*height: 20em;*/
-	/*height: 200px;*/
-	/*padding-bottom: 8%;*/
 	margin: 0 10px 10px 0;
 	border: 1px solid;
 	display: inline-block;
 }
+
 .goods-right .main{
 	padding: 10px;
 }
@@ -61,7 +55,6 @@ ul{
 }
 .btn-car{
 	width: 100%;
-	/*padding-top: 10px;*/
 	border: 1px solid red;
 	text-align: center;
 }

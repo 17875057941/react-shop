@@ -1,12 +1,9 @@
 //主页
 import React from 'react';
 
-//import Header from '../header/CookieHeader';
 import Header from '../../container/header/Header'
-import SingleGoods from '../../container/singleGoods/SingleGoods'//new
-//import SingleGoods from '../../components/singleGoods/SingleGoods'
-//import {Link} from 'react-router-dom'
-//import {imgData} from '../imageData/imagedata'//获取处理过后的商品数据
+import SingleGoods from '../../container/singleGoods/SingleGoods'
+
 require('./Home.css');
 //主页
 class Home extends React.Component{

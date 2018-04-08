@@ -4,7 +4,7 @@ imgData=(function(imgDataArr){//使用闭包，根据图片信息获取图片路
 	var imgFigureArr=[];
 	for(var i in imgDataArr){
 		var imgFigure=imgDataArr[i];
-		imgFigure.imgUrl=require('../../static/'+imgFigure.productImage);//加载图片路径
+		imgFigure.imgUrl=require('../../../static/'+imgFigure.productImage);//加载图片路径
 		imgFigureArr.push(imgFigure);
 	}
 	return imgFigureArr;

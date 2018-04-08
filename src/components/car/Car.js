@@ -31,7 +31,7 @@ class Car extends React.Component{
 			}else{
 				data=JSON.parse(this.props.data.getItem(key));
 				this.goods.push({
-					pic:require('../../static/'+data.productImage),//加载图片路径
+					pic:require('../../../static/'+data.productImage),//加载图片路径
 					dataId:key,
 					title:data.productName,
 					unitPrice:data.salePrice,
