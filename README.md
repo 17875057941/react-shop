@@ -12,3 +12,5 @@
 待解决：
 * 删除商品state不会更新
 * 删除无效代码
+
+该购物车模块旨在练习react、react-router和redux。
