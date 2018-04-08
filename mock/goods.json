@@ -60,6 +60,60 @@
       "productName":"Yeelight床头灯",
       "salePrice":"249",
       "productImage":"Yeelight床头灯.jpg"
-    }
+    },
+    {
+      "productId":"10011",
+      "productName":"iHealth智能血压计",
+      "salePrice":"699",
+      "productImage":"iHealth智能血压计.jpg"
+    },
+    {
+      "productId":"10012",
+      "productName":"九号平衡车!220x220",
+      "salePrice":"755",
+      "productImage":"九号平衡车!220x220.jpg"
+    },
+    {
+      "productId":"10013",
+      "productName":"米家 iHealth 血压计",
+      "salePrice":"555",
+      "productImage":"米家 iHealth 血压计.jpg"
+    },
+     {
+      "productId":"10014",
+      "productName":"米家iHealth血压计!220x220",
+      "salePrice":"666",
+      "productImage":"米家iHealth血压计!220x220.jpg"
+    },
+    {
+      "productId":"10015",
+      "productName":"米家飞利浦台灯二代",
+      "salePrice":"455",
+      "productImage":"米家飞利浦台灯二代.jpg"
+    },
+    {
+      "productId":"10016",
+      "productName":"米家感应夜灯!220x220",
+      "salePrice":"455",
+      "productImage":"米家感应夜灯!220x220.jpg"
+    },
+     {
+      "productId":"10017",
+      "productName":"米家行车记录仪!220x220",
+      "salePrice":"855",
+      "productImage":"米家行车记录仪!220x220.jpg"
+    },
+     {
+      "productId":"10018",
+      "productName":"米家扫地机器人",
+      "salePrice":"485",
+      "productImage":"米家扫地机器人.jpg"
+    },
+     {
+      "productId":"10019",
+      "productName":"米家声波电动牙刷",
+      "salePrice":"333",
+      "productImage":"米家声波电动牙刷.jpg"
+    },
   ]
 }

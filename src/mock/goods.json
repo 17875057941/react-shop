@@ -60,6 +60,92 @@
       "productName":"Yeelight床头灯",
       "salePrice":"249",
       "productImage":"Yeelight床头灯.jpg"
+    },
+    {
+      "productId":"10011",
+      "productName":"iHealth智能血压计",
+      "salePrice":"699",
+      "productImage":"iHealth智能血压计.jpg"
+    },
+    
+    {
+      "productId":"10012",
+      "productName":"米家 iHealth 血压计",
+      "salePrice":"555",
+      "productImage":"米家 iHealth 血压计.jpg"
+    },
+    
+    {
+      "productId":"10013",
+      "productName":"米家飞利浦台灯二代",
+      "salePrice":"455",
+      "productImage":"米家飞利浦台灯二代.jpg"
+    },
+    {
+      "productId":"10014",
+      "productName":"米家扫地机器人",
+      "salePrice":"485",
+      "productImage":"米家扫地机器人.jpg"
+    },
+     {
+      "productId":"10015",
+      "productName":"米家声波电动牙刷",
+      "salePrice":"1000",
+      "productImage":"米家声波电动牙刷.jpg"
+    },
+     {
+      "productId":"10016",
+      "productName":"米家智能摄像机",
+      "salePrice":"998",
+      "productImage":"米家智能摄像机.jpg"
+    },
+     {
+      "productId":"10017",
+      "productName":"米兔定位电话",
+      "salePrice":"992",
+      "productImage":"米兔定位电话.jpg"
+    },
+     {
+      "productId":"10018",
+      "productName":"米兔儿童电话手表2",
+      "salePrice":"888",
+      "productImage":"米兔儿童电话手表2.jpg"
+    },
+     {
+      "productId":"10019",
+      "productName":"米兔儿童手表Q",
+      "salePrice":"456",
+      "productImage":"米兔儿童手表Q.jpg"
+    },
+     {
+      "productId":"10020",
+      "productName":"米兔智能故事机",
+      "salePrice":"253",
+      "productImage":"米兔智能故事机.jpg"
+    },
+     {
+      "productId":"10021",
+      "productName":"小方智能摄像机 1080P",
+      "salePrice":"756",
+      "productImage":"小方智能摄像机 1080P.jpg"
+    },
+     {
+      "productId":"10022",
+      "productName":"小米米家对讲机",
+      "salePrice":"246",
+      "productImage":"小米米家对讲机.jpg"
+    },
+     {
+      "productId":"10023",
+      "productName":"小米魔方控制器",
+      "salePrice":"246",
+      "productImage":"小米魔方控制器.jpg"
+    },
+     {
+      "productId":"10024",
+      "productName":"小米体重秤",
+      "salePrice":"246",
+      "productImage":"小米体重秤.jpg"
     }
   ]
 }
